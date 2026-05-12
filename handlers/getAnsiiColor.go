@@ -1,6 +1,6 @@
 package main
 
-func getANSIColor(colorName string) (string, bool) {
+func getAnsiColor(colorName string) (string, bool) {
     m := map[string]string{
 		"red": "\033[31m",
 		"green": "\033[32m",
