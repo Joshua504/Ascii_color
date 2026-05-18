@@ -4,6 +4,9 @@ import "strings"
 
 func ColoredIndices(sentence, subStr string) map[int]bool {
 	found := make(map[int]bool)
+	if subStr == "" {
+		return found
+	}
 	remaining := sentence
 	offset := 0
 
