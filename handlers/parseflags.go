@@ -34,6 +34,14 @@ func ParseFlags(s []string) FlagConfig {
 	case len(s) == 4:
 		if strings.HasPrefix(s[1], "--color=") {
 			split := strings.Split(s[1], "=")
+			bannerNames := map[string]bool{"standard": true, "shadow": true, "thinkertoy": true}
+			if bannerNames[s[3]] {
+				return FlagConfig{
+					Color:    split[1],
+					Sentence: s[2],
+					Banner:   s[3],
+				}
+			}
 			return FlagConfig{
 				Color:    split[1],
 				SubStr:   s[2],

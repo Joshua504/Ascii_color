@@ -42,7 +42,11 @@ func main() {
 	}
 
 	lines := strings.Split(config.Sentence, "\\n")
-	colored := handlers.ColoredIndices(config.Sentence, config.SubStr)
+	subStr := config.SubStr
+	if subStr == "" {
+		subStr = config.Sentence
+	}
+	colored := handlers.ColoredIndices(config.Sentence, subStr)
 	color := ""
 	if config.Color != "" {
 		color = handlers.GetColor(config.Color)
